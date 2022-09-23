@@ -1,0 +1,20 @@
+Método Desplazamiento Reducción (MDR)
+
+E -> E+E
+E -> E-E
+E -> E*E
+E -> E/E
+E -> (E)
+E -> id
+
+VARIABLES
+E
+
+TERMINALES
++,-,*,/,(,),id
+
+INICIAL 
+E
+
+CADENA W
+id*id+(id-id)
