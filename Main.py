@@ -49,17 +49,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         res = self.analyze.MetodoDesplazamientoReduccion(mapaRulesValores,conjVariables,conjTerminales,nodoInicial,cadena)
 
-        # #[{aB:'a'},{}]
-        # resFormato = ""
-
-        # for cadenaCalc in res:
-        #     for cadena in cadenaCalc:
-        #         resFormato += "Sig({}) = {} \n".format(cadena,cadenaCalc[cadena])
-
-        # print(res)
-        # print(resFormato)
-
-        # self.txtOutput.setPlainText(resFormato)
+        self.txtOutput.setPlainText(res)
 
 
     def conjuntoElementos(self,lista = []):

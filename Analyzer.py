@@ -10,6 +10,7 @@ class AnalizadorSintactico:
     ACCION = []
     CADENA = ""
     ITERACIONES = 0
+    CADENA_RES = ""
 
     def MetodoDesplazamientoReduccion(self,_rules,_variables,_terminales,_inicial,_cadena):
         self.RULES = _rules
@@ -26,7 +27,7 @@ class AnalizadorSintactico:
 
         print(self.CADENA)
 
-        self.CalcularMDR()
+        return self.CalcularMDR()
 
         
     def CalcularMDR(self):
@@ -36,10 +37,13 @@ class AnalizadorSintactico:
         self.ACCION = "Desplazamiento"
 
         print("------------------------------------")
-        print("PILA","  |  ENTRADA","  | ACCION")
+
+        self.CADENA_RES += "{:<10} {:<17} {:<10} \n".format("PILA","ENTRADA","ACCION")
 
         while self.ENTRADA != "" or cambioDetectado == True:
-            print(self.PILA,"  |  ",self.ENTRADA,"$  |  ",self.ACCION)
+
+            self.CADENA_RES += "{:<10} {:<17} {:<10} \n".format(self.PILA,self.ENTRADA+"$",self.ACCION)
+
             cambioDetectado = False
             self.ITERACIONES += 1
 
@@ -85,7 +89,12 @@ class AnalizadorSintactico:
 
 
         if self.PILA[1:] == self.INICIAL:
-            
-            print("CADENA ACEPTADA")
+            self.CADENA_RES += "CADENA ACEPTADA"
         else: 
-            print("CADENA NO ACEPTADA")
+            self.CADENA_RES += "CADENA NO ACEPTADA"
+
+        print(self.CADENA_RES)
+
+        return self.CADENA_RES
+
+        
